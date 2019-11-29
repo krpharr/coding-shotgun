@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <title>Document</title>
 </head>
@@ -15,13 +16,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 main-view">
 
                 <div class="start-container" id="startContainerID">
                     <button id="startBtnID" class="btn-info">Start</button>
                 </div>
 
                 <div class="quiz-container" id="quizContainerID">
+                    <span id="timerSpanID"></span>
                     <div class="prompt">
                         <span id="promtSpanID"></span>
                     </div>
@@ -29,12 +31,19 @@
 
                     </ul>
                     <span id="resultSpanID"></span>
-
                 </div>
 
-                <div class="timercontainer" id="timerContainerID">
-                    <span id="timerSpanID"></span>
-                    </span>
+                <div class="results-container" id="resultsContainerID">
+                    <div class=".score">
+                        Your score: <span id="scoreSpanID"></span>
+                    </div>
+                    <div class=".initial-input">
+                        <span>Enter your initials.</span>
+                        <input type="text" id="initialsInputID">
+
+                    </div>
+
+
                 </div>
 
             </div>

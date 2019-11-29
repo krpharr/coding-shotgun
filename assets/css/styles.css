@@ -1,5 +1,37 @@
-.start-container {}
+.main-view {
+    position: relative;
+}
 
-.quiz-container {}
+.start-container {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+}
 
-.timer-conatiner {}
+.quiz-container {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+.results-container {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+
+/* .timer-container {
+    position: fixed;
+    top: 0;
+    right: 8!important;
+} */
+
+#timerSpanID {
+    position: fixed;
+    top: 0;
+    right: 8px;
+}
