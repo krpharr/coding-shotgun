@@ -4,13 +4,13 @@ var promtSpan = document.querySelector("#promtSpanID");
 var choicesUL = document.querySelector("#choicesULID");
 var resultSpan = document.querySelector("#resultSpanID");
 var scoreSpan = document.querySelector("#scoreSpanID");
+var initialsInput = document.querySelector("#initialsInputID");
+var cancelBtn = document.querySelector("#cancelBtnID");
+var enterBtn = document.querySelector("#enterBtnID");
 
+window.name = "code-shotgun";
 
 var quiz = false;
-var highscores = JSON.parse(localStorage.getItem("highscores"));
-if (highscores === null) {
-    highscores = [];
-}
 
 var totalSeconds = 75;
 var secondsLeft = 0;
@@ -37,6 +37,7 @@ function startTimer() {
 function startQuiz() {
     quiz = true;
     quizArray = questions.slice();
+    // improve this sort ?
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
     showElement(".start-container", false);
     showElement(".quiz-container", true);
@@ -115,12 +116,44 @@ function displayResults() {
 
 }
 
+function reset() {
+    showElement(".results-container", false);
+    showElement(".start-container", true);
+}
+
+function saveInitialsToStorage() {
+    // validate input
+    var initials = initialsInput.value;
+    if (initials.trim === "") {
+        return;
+    }
+
+    var score = {
+        initials: initials,
+        score: secondsLeft
+    };
+
+    var highscores = getHighScores();
+    highscores.push(score);
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+    reset();
+}
+
+function getHighScores() {
+    // if highscores in local storage -> returns array -> if not returns empty array
+    var hs = JSON.parse(localStorage.getItem("highscores"));
+    if (hs === null) {
+        hs = [];
+    }
+    return hs;
+}
+
 function showElement(selector, show) {
     let el = document.querySelector(selector);
     show ? el.style.display = "block" : el.style.display = "none";
 }
 
-
-
 startBtn.addEventListener("click", startQuiz);
 choicesUL.addEventListener("click", checkAnswer);
+cancelBtn.addEventListener("click", reset);
+enterBtn.addEventListener("click", saveInitialsToStorage);
