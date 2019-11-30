@@ -1,22 +1,27 @@
  var questions = [{
-         title: "Commonly used data types DO NOT include:",
-         choices: ["strings", "booleans", "alerts", "numbers"],
-         answer: "alerts"
+         title: "JavaScript variables are containers for __________ data values.",
+         choices: ["deleting", "sorting", "storing", "looping"],
+         answer: "sorting"
      },
      {
-         title: "The condition in an if / else statement is enclosed within ____.",
-         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-         answer: "parentheses"
+         title: "(128 % 2) === 0",
+         choices: ["true", "false"],
+         answer: "true"
      },
      {
-         title: "Question 1",
-         choices: ["sdfsdfsdf", "erwgergwergewg", "fdhdfghdfgh", "dfghdfghs"],
-         answer: "erwgergwergewg"
+         title: "var n = 10;\nn += 10;\nWhat is the value of n?",
+         choices: ["10", "20", "100", "110"],
+         answer: "20"
      },
      {
-         title: "Question 2",
-         choices: ["sdfsdfsdf", "erwgergwergewg", "fdhdfghdfgh", "dfghdfghs"],
-         answer: "erwgergwergewg"
+         title: "In Javascript numbers, strings, arrays, booleans, and objects are called:",
+         choices: ["data types", "integers", "pointers", "classes"],
+         answer: "data types"
+     },
+     {
+         title: "When JavaScript reaches a return statement, the function will _________ executing.",
+         choices: ["begin", "stop"],
+         answer: "stop"
      }
 
  ];
