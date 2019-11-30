@@ -7,6 +7,7 @@ var scoreSpan = document.querySelector("#scoreSpanID");
 var initialsInput = document.querySelector("#initialsInputID");
 var cancelBtn = document.querySelector("#cancelBtnID");
 var enterBtn = document.querySelector("#enterBtnID");
+var languagesUL = document.querySelector("#languagesUlID");
 
 window.name = "code-shotgun";
 
@@ -17,6 +18,61 @@ var score;
 var quizArray;
 var currentPromt;
 var saveQuestionsArray = [];
+
+initStartPage();
+
+function initStartPage() {
+    quizArray = [];
+
+    languagesArray.forEach(element => {
+        var li = document.createElement("li");
+        var cb = document.createElement("input");
+        cb.setAttribute("type", "checkbox");
+        cb.setAttribute("value", element);
+        var span = document.createElement("span");
+        span.textContent = element.charAt(0).toUpperCase() + element.slice(1);
+        var sel = document.createElement("select");
+        var n;
+        switch (element) {
+            case "javascript":
+                n = javascriptQUIZ.length;
+                break;
+            case "git":
+                n = gitQUIZ.length;
+                break;
+        }
+        for (var i = 0; i < n; i++) {
+            var opt = document.createElement("option");
+            opt.setAttribute("value", i + 1);
+            if (i === n - 1) {
+                opt.setAttribute("selected", "selected");
+            }
+            opt.textContent = i + 1;
+            sel.appendChild(opt);
+        }
+        li.appendChild(cb);
+        li.appendChild(span);
+        li.appendChild(sel);
+        languagesUL.appendChild(li);
+    });
+
+}
+
+function setLanguages() {
+    var qArray = [];
+    switch (element) {
+        case "javascript":
+            qArray = javascriptQUIZ.slice();
+            break;
+        case "git":
+            qArray = gitQUIZ.slice();
+            break;
+    }
+    qArray.forEach(e => {
+        quizArray.push(e);
+    });
+
+}
 
 function startTimer() {
     secondsLeft = totalSeconds;

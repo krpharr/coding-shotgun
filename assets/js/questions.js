@@ -1,3 +1,5 @@
+ var languagesArray = ["javascript", "git"];
+
  var javascriptQUIZ = [{
          title: "JavaScript variables are containers for __________ data values.",
          choices: ["deleting", "sorting", "storing", "looping"],
