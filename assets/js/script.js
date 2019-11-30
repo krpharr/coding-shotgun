@@ -10,8 +10,6 @@ var enterBtn = document.querySelector("#enterBtnID");
 
 window.name = "code-shotgun";
 
-var quiz = false;
-
 var totalSeconds = 75;
 var secondsLeft = 0;
 var interval;
@@ -28,15 +26,14 @@ function startTimer() {
         if (secondsLeft <= 0) {
             clearInterval(interval);
             // quiz over
-            alert("Time's up!");
-            quiz = false;
+            // alert("Time's up!");
+            endQuiz();
         }
     }, 1000);
 }
 
 function startQuiz() {
-    quiz = true;
-    quizArray = questions.slice();
+    quizArray = javascriptQUIZ.slice();
     // improve this sort ?
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
     showElement(".start-container", false);
@@ -46,7 +43,6 @@ function startQuiz() {
 }
 
 function endQuiz() {
-    quiz = false;
     clearInterval(interval);
     clearChoices();
     showElement(".quiz-container", false);

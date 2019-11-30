@@ -1,7 +1,7 @@
- var questions = [{
+ var javascriptQUIZ = [{
          title: "JavaScript variables are containers for __________ data values.",
          choices: ["deleting", "sorting", "storing", "looping"],
-         answer: "sorting"
+         answer: "storing"
      },
      {
          title: "(128 % 2) === 0",
@@ -25,3 +25,57 @@
      }
 
  ];
+
+ var gitQUIZ = [{
+         title: "With a pull request you are proposing that your changes should be __________ with the master.",
+         choices: ["married", "compiled", "run", "merged"],
+         answer: "merged"
+     },
+     {
+         title: "Fetch the remote's copy of the current branch.",
+         choices: ["git clone", "git pull", "git init", "git mkdir"],
+         answer: "git pull",
+     },
+     {
+         title: "List which files are staged, unstaged, and untracked",
+         choices: ["git reflog", "git status", "git push", "git diff"],
+         answer: "git status"
+     },
+     {
+         title: "git branch",
+         choices: ["Creates a new branch.", "Lists all branches in your repo.", "Merges current branch", "Searches for commits by author."],
+         answer: "Lists all branches in your repo."
+     },
+     {
+         title: "To switch to an existing branch:",
+         choices: ["git checkout branchname", "git merge branchname", "git init branchname", "git lookout branchname"],
+         answer: "git checkout branchname"
+     }
+ ];
+
+ //  var QUIZ = [{
+ //          title: "",
+ //          choices: "",
+ //          answer: ""
+ //      },
+ //      {
+ //          title: "",
+ //          choices: "",
+ //          answer: ""
+ //      },
+ //      {
+ //          title: "",
+ //          choices: "",
+ //          answer: ""
+ //      },
+ //      {
+ //          title: "",
+ //          choices: "",
+ //          answer: ""
+ //      },
+ //      {
+ //          title: "",
+ //          choices: "",
+ //          answer: ""
+ //      }
+ //  ];
