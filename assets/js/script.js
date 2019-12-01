@@ -8,6 +8,7 @@ var initialsInput = document.querySelector("#initialsInputID");
 var cancelBtn = document.querySelector("#cancelBtnID");
 var enterBtn = document.querySelector("#enterBtnID");
 var languagesUL = document.querySelector("#languagesUlID");
+var totalTimeSpan = document.querySelector("#totalTimeSpanID");
 
 window.name = "code-shotgun";
 
@@ -22,7 +23,6 @@ var saveQuestionsArray = [];
 initStartPage();
 
 function initStartPage() {
-
     languagesArray.forEach(element => {
         var li = document.createElement("li");
         li.setAttribute("value", element);
@@ -55,20 +55,23 @@ function initStartPage() {
         li.appendChild(sel);
         languagesUL.appendChild(li);
     });
+    setLanguages(getLangSettingsFromStorage());
+    localStorage.setItem("code-shotgun-settings", JSON.stringify(getLangSettingsArray()));
+}
 
-    // set checkboxes from localStorage or set default to javascript
-    var langSettingsArrayStorage = JSON.parse(localStorage.getItem("code-shotgun-settings"));
-    if (langSettingsArrayStorage === null) {
-        langSettingsArrayStorage = [{ lang: "javascript", num: 5 }];
-        // langSettingsArrayStorage = [{ lang: "javascript", num: 1 }, { lang: "git", num: 5 }];
-        // langSettingsArrayStorage = [{ lang: "git", num: 3 }];
-        // langSettingsArrayStorage = [{ lang: "javascript", num: 5 }, { lang: "git", num: 4 }];
+function getLangSettingsFromStorage() {
+    var lsArray = JSON.parse(localStorage.getItem("code-shotgun-settings"));
+    if (lsArray === null || lsArray.length < 1) {
+        lsArray = [{ lang: "javascript", num: 5 }];
+        // lsArray = [{ lang: "javascript", num: 1 }, { lang: "git", num: 5 }];
+        // lsArray = [{ lang: "git", num: 3 }];
+        // lsArray = [{ lang: "javascript", num: 5 }, { lang: "git", num: 4 }];
     }
-    setLanguages(langSettingsArrayStorage);
-
+    return lsArray;
 }
 
 function setLanguages(langSettingsArray) {
+    quizArray = [];
     var qArray = [];
     console.log(langSettingsArray);
     langSettingsArray.forEach(langSetting => {
@@ -78,11 +81,10 @@ function setLanguages(langSettingsArray) {
         liArray.forEach(li => {
             if (li.getAttribute("value") === langSetting.lang) {
                 console.log(li.childNodes[0]);
-                li.childNodes[0].setAttribute("checked", "checked");
+                li.childNodes[0].checked = true;
                 li.childNodes[2].value = langSetting.num;
             }
         });
-
         switch (langSetting.lang) {
             case "javascript":
                 qArray = javascriptQUIZ.slice();
@@ -93,14 +95,17 @@ function setLanguages(langSettingsArray) {
         }
         qArray.sort(function(a, b) { return 0.5 - Math.random() });
         console.log(qArray);
-        console.log(langSetting.num - qArray.length);
-        qArray.splice(0, qArray.length - langSetting.num);
-        console.log(qArray);
+        var i = qArray.length - parseInt(langSetting.num);
+        console.log(langSetting.num, qArray.length, i);
+        console.log(typeof qArray.length);
+        console.log(typeof langSetting.num);
+        qArray.splice(0, i);
         qArray.forEach(e => {
             quizArray.push(e);
         });
-
     });
+    totalSeconds = quizArray.length * 15;
+    totalTimeSpan.textContent = totalSeconds;
 }
 
 function startTimer() {
@@ -117,9 +122,32 @@ function startTimer() {
     }, 1000);
 }
 
+function getLangSettingsArray() {
+    var a = [];
+    var liArray = languagesUL.querySelectorAll("li");
+    liArray.forEach(li => {
+        if (li.childNodes[0].checked) {
+            var l = li.getAttribute("value");
+            var n = li.childNodes[2].value;
+            a.push({ lang: l, num: n })
+        }
+    });
+    return a;
+}
+
+function resetLangSettings() {
+    var langSettingsArray = getLangSettingsArray();
+    if (langSettingsArray.length < 1) {
+        console.log("EMPTY ARRAY")
+        setLanguages(getLangSettingsFromStorage());
+        return;
+    }
+    setLanguages(langSettingsArray);
+    localStorage.setItem("code-shotgun-settings", JSON.stringify(langSettingsArray));
+}
+
 function startQuiz() {
-    quizArray = javascriptQUIZ.slice();
-    // improve this sort ?
+    resetLangSettings();
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
     showElement(".start-container", false);
     showElement(".quiz-container", true);
@@ -161,17 +189,12 @@ function checkAnswer(event) {
     setTimeout(function() {
         resultSpan.textContent = "";
     }, 2000);
-
     if (msg === "Correct!") {
-
 
     } else {
         saveQuestionsArray.push(currentPromt);
         secondsLeft -= 15;
     }
-
-    console.log(msg);
-
     var len = quizArray.length;
     if (len === 1) {
         // quiz over
@@ -205,15 +228,13 @@ function reset() {
 function saveInitialsToStorage() {
     // validate input
     var initials = initialsInput.value;
-    if (initials.trim === "") {
+    if (initials.trim() === "") {
         return;
     }
-
     var score = {
         initials: initials,
         score: secondsLeft
     };
-
     var highscores = getHighScores();
     highscores.push(score);
     localStorage.setItem("highscores", JSON.stringify(highscores));
@@ -238,3 +259,4 @@ startBtn.addEventListener("click", startQuiz);
 choicesUL.addEventListener("click", checkAnswer);
 cancelBtn.addEventListener("click", reset);
 enterBtn.addEventListener("click", saveInitialsToStorage);
+languagesUL.addEventListener("change", resetLangSettings);
