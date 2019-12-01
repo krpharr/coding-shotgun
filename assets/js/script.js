@@ -15,17 +15,17 @@ var totalSeconds = 75;
 var secondsLeft = 0;
 var interval;
 var score;
-var quizArray;
+var quizArray = [];
 var currentPromt;
 var saveQuestionsArray = [];
 
 initStartPage();
 
 function initStartPage() {
-    quizArray = [];
 
     languagesArray.forEach(element => {
         var li = document.createElement("li");
+        li.setAttribute("value", element);
         var cb = document.createElement("input");
         cb.setAttribute("type", "checkbox");
         cb.setAttribute("value", element);
@@ -56,22 +56,51 @@ function initStartPage() {
         languagesUL.appendChild(li);
     });
 
+    // set checkboxes from localStorage or set default to javascript
+    var langSettingsArrayStorage = JSON.parse(localStorage.getItem("code-shotgun-settings"));
+    if (langSettingsArrayStorage === null) {
+        langSettingsArrayStorage = [{ lang: "javascript", num: 5 }];
+        // langSettingsArrayStorage = [{ lang: "javascript", num: 1 }, { lang: "git", num: 5 }];
+        // langSettingsArrayStorage = [{ lang: "git", num: 3 }];
+        // langSettingsArrayStorage = [{ lang: "javascript", num: 5 }, { lang: "git", num: 4 }];
+    }
+    setLanguages(langSettingsArrayStorage);
+
 }
 
-function setLanguages() {
+function setLanguages(langSettingsArray) {
     var qArray = [];
-    switch (element) {
-        case "javascript":
-            qArray = javascriptQUIZ.slice();
-            break;
-        case "git":
-            qArray = gitQUIZ.slice();
-            break;
-    }
-    qArray.forEach(e => {
-        quizArray.push(e);
-    });
+    console.log(langSettingsArray);
+    langSettingsArray.forEach(langSetting => {
+        // cbArray = languagesUL.querySelectorAll("input");
+        var liArray = languagesUL.querySelectorAll("li");
+        console.log(liArray);
+        liArray.forEach(li => {
+            if (li.getAttribute("value") === langSetting.lang) {
+                console.log(li.childNodes[0]);
+                li.childNodes[0].setAttribute("checked", "checked");
+                li.childNodes[2].value = langSetting.num;
+            }
+        });
 
+        switch (langSetting.lang) {
+            case "javascript":
+                qArray = javascriptQUIZ.slice();
+                break;
+            case "git":
+                qArray = gitQUIZ.slice();
+                break;
+        }
+        qArray.sort(function(a, b) { return 0.5 - Math.random() });
+        console.log(qArray);
+        console.log(langSetting.num - qArray.length);
+        qArray.splice(0, qArray.length - langSetting.num);
+        console.log(qArray);
+        qArray.forEach(e => {
+            quizArray.push(e);
+        });
+
+    });
 }
 
 function startTimer() {
