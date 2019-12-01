@@ -40,6 +40,9 @@ function initStartPage() {
             case "git":
                 n = gitQUIZ.length;
                 break;
+            case "css":
+                n = cssQUIZ.length;
+                break;
         }
         for (var i = 0; i < n; i++) {
             var opt = document.createElement("option");
@@ -91,6 +94,9 @@ function setLanguages(langSettingsArray) {
                 break;
             case "git":
                 qArray = gitQUIZ.slice();
+                break;
+            case "css":
+                qArray = cssQUIZ.slice();
                 break;
         }
         qArray.sort(function(a, b) { return 0.5 - Math.random() });
@@ -210,7 +216,6 @@ function checkAnswer(event) {
     function checkTitle(promt) {
         return promt.title === currentPromt.title;
     }
-
     displayPromt();
 }
 

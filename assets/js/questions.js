@@ -1,4 +1,4 @@
- var languagesArray = ["javascript", "git"];
+ var languagesArray = ["javascript", "git", "css"];
 
  var javascriptQUIZ = [{
          title: "JavaScript variables are containers for __________ data values.",
@@ -52,6 +52,33 @@
          title: "To switch to an existing branch:",
          choices: ["git checkout branchname", "git merge branchname", "git init branchname", "git lookout branchname"],
          answer: "git checkout branchname"
+     }
+ ];
+
+ var cssQUIZ = [{
+         title: "Content, padding, margins, and borders are properties of the __________ model",
+         choices: ["paper", "board", "rectangle", "box"],
+         answer: "box"
+     },
+     {
+         title: "Sans-serif fonts have small lines at the ends on some characters",
+         choices: ["true", "false"],
+         answer: "false"
+     },
+     {
+         title: "__________ properties are used to create space around elements, outside of any defined borders.",
+         choices: ["Padding", "Margin", "Border", "Line-height"],
+         answer: "Margin"
+     },
+     {
+         title: "The __________ property is used for positioning and formatting content",
+         choices: ["float", "int", "void", "background"],
+         answer: ""
+     },
+     {
+         title: "An element with position: absolute; is positioned relative to the nearest positioned ancestor.",
+         choices: ["true", "false"],
+         answer: "true"
      }
  ];
 
