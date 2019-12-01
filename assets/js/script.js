@@ -26,12 +26,18 @@ function initStartPage() {
     languagesArray.forEach(element => {
         var li = document.createElement("li");
         li.setAttribute("value", element);
+        li.style.display = "inline";
+        li.style.margin = "0 8px";
+        li.style.padding = "8px 4px";
+        li.style.borderBottom = "1px solid black";
         var cb = document.createElement("input");
         cb.setAttribute("type", "checkbox");
         cb.setAttribute("value", element);
+        cb.style.margin = "0 4px";
         var span = document.createElement("span");
         span.textContent = element.charAt(0).toUpperCase() + element.slice(1);
         var sel = document.createElement("select");
+        sel.style.margin = "0 4px";
         var n;
         switch (element) {
             case "javascript":

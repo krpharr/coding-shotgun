@@ -15,55 +15,56 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div class="col-12 main-view">
-
-                <div class="start-container" id="startContainerID">
-
-                    <div class="languages-container">
-                        <ul id="languagesUlID">
-
-                        </ul>
-                    </div>
-                    <div>
-                        Total Time:<span id="totalTimeSpanID"></span>
-                    </div>
-                    <button id="startBtnID" class="btn-info">Start</button>
-                    <a href="scores.html" target="_scores">View High Scores</a>
-                </div>
-
-                <div class="quiz-container" id="quizContainerID">
-                    <span id="timerSpanID"></span>
-                    <div class="prompt">
-                        <span id="promtSpanID"></span>
-                    </div>
-                    <ul id="choicesULID">
-
-                    </ul>
-                    <span id="resultSpanID"></span>
-                </div>
-
-                <div class="results-container" id="resultsContainerID">
-                    <div class=".score">
-                        Your score: <span id="scoreSpanID"></span>
-                    </div>
-                    <div class=".initial-input">
-                        <span>Enter your initials.</span>
-                        <input type="text" id="initialsInputID">
-                    </div>
-                    <div>
-                        <button id="cancelBtnID">Cancel</button>
-                        <button id="enterBtnID">Enter</button>
-                    </div>
-                    <div>
-                        <a href="scores.html" target="_scores">View High Scores</a>
-                    </div>
 
 
-                </div>
 
+        <div class="start-container mt-5" id="startContainerID">
+
+            <div class="text-center mt-5">
+                Total Time:<span id="totalTimeSpanID"></span>
             </div>
+            <div class="text-center mt-5"><button id="startBtnID" class="btn-info">Start</button></div>
+            <div class="text-center mt-3"><a href="scores.html" target="_scores">View High Scores</a></div>
+            <div class="languages-container text-center mt-3">
+                <ul id="languagesUlID">
+
+                </ul>
+            </div>
+
         </div>
+
+        <div class="quiz-container" id="quizContainerID">
+            <span id="timerSpanID"></span>
+            <div class="prompt">
+                <span id="promtSpanID"></span>
+            </div>
+            <ul id="choicesULID">
+
+            </ul>
+            <span id="resultSpanID"></span>
+        </div>
+
+        <div class="results-container" id="resultsContainerID">
+            <div class=".score">
+                Your score: <span id="scoreSpanID"></span>
+            </div>
+            <div class=".initial-input">
+                <span>Enter your initials.</span>
+                <input type="text" id="initialsInputID">
+            </div>
+            <div>
+                <button id="cancelBtnID">Cancel</button>
+                <button id="enterBtnID">Enter</button>
+            </div>
+            <div>
+                <a href="scores.html" target="_scores">View High Scores</a>
+            </div>
+
+
+        </div>
+
+
+
     </div>
 
     <script src="assets/js/questions.js"></script>
