@@ -56,7 +56,7 @@
  ];
 
  var cssQUIZ = [{
-         title: "Content, padding, margins, and borders are properties of the __________ model",
+         title: "Content, padding, margins, and borders are properties of the __________ model?",
          choices: ["paper", "board", "rectangle", "box"],
          answer: "box"
      },

@@ -1,10 +1,10 @@
 * {
     font-family: monospace;
-    color: rgb(0, 162, 255);
+    color: #63B9EA;
 }
 
 body {
-    background-color: #242425;
+    background-color: #242426;
 }
 
 .main-view {}
@@ -15,6 +15,7 @@ body {
 
 .quiz-container {
     display: none;
+    margin-top: 56px;
 }
 
 .results-container {
@@ -28,7 +29,8 @@ body {
 #timerSpanID {
     position: fixed;
     top: 0;
-    right: 8px;
+    right: 16px;
+    font-size: 2rem;
 }
 
 #languagesUlID {
@@ -48,7 +50,7 @@ body {
 }
 
 #totalTimePID {
-    color: rgb(187, 98, 187);
+    color: #C16DEB;
 }
 
 #totalTimeSpanID {
@@ -58,8 +60,33 @@ body {
 #startBtnID {
     margin: 40px 0;
     font-size: xx-large;
-    background-color: #2B2B32;
+    background-color: #242426;
     color: #2F8EF8;
+}
+
+.prompt {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #383838;
+    border-radius: 10px;
+}
+
+.prompt #promtSpanID {
+    font-size: 1.5rem;
+    color: #ADACAC;
+}
+
+#choicesULID {
+    font-size: 1rem;
+}
+
+#choicesULID li {
+    margin-top: 8px;
+    border: 1px black solid;
+    padding: 8px;
+    list-style-type: upper-alpha;
+    list-style-position: outside;
+    list-style-image: none;
 }
 
 @media only screen and (min-width: 320px) {}

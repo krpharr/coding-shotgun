@@ -60,7 +60,6 @@ function initStartPage() {
             opt.textContent = i + 1;
             sel.appendChild(opt);
         }
-
         var row = document.createElement("div");
         row.setAttribute("class", "row language-row");
         var col = [];
@@ -69,28 +68,17 @@ function initStartPage() {
             col[i].setAttribute("class", "col-2 p-0");
         }
         col[1].setAttribute("class", "col-8 p-0");
-
         col[0].appendChild(cb);
         col[1].appendChild(span);
         col[2].appendChild(sel);
         col.forEach(c => {
             li.appendChild(c);
         });
-
         row.appendChild(li);
         li.style.display = "flex";
         li.style.width = "160px";
-
         languagesUL.appendChild(row);
-
-        // li.appendChild(cb);
-        // li.appendChild(span);
-        // li.appendChild(sel);
-        // languagesUL.appendChild(li);
-
-
     });
-
     setLanguages(getLangSettingsFromStorage());
     localStorage.setItem("code-shotgun-settings", JSON.stringify(getLangSettingsArray()));
 }
@@ -216,10 +204,16 @@ function displayPromt() {
     console.log(currentPromt.title);
     promtSpan.textContent = currentPromt.title;
     clearChoices();
+    var i = 0;
+    colorArray = ["#63B9EA", "#AF7C65", "#C16DEB", "#C2C42F"];
+    colorArray.sort(function(a, b) { return 0.5 - Math.random() });
     currentPromt.choices.forEach(element => {
         var li = document.createElement("li");
+        li.style.color = colorArray[i];
+        i++;
         li.textContent = element;
         choicesUL.appendChild(li);
+
     });
 }
 
@@ -264,7 +258,6 @@ function checkAnswer(event) {
 function displayResults() {
     showElement(".results-container", true);
     scoreSpan.textContent = secondsLeft;
-
 }
 
 function reset() {
