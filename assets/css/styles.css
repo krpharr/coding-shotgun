@@ -22,6 +22,18 @@
     right: 8px;
 }
 
+#languagesUlID {
+    padding: 0;
+    /* margin-left: -28px; */
+    margin-bottom: 36px;
+}
+
+.language-row {
+    padding: 4px;
+    margin: 4px;
+    border: solid 1px black;
+}
+
 @media only screen and (min-width: 320px) {}
 
 

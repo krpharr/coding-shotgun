@@ -26,18 +26,19 @@ function initStartPage() {
     languagesArray.forEach(element => {
         var li = document.createElement("li");
         li.setAttribute("value", element);
-        li.style.display = "inline";
+        // li.setAttribute("class", "col-xs-12");
+        // li.style.display = "inline";
         li.style.margin = "0 8px";
-        li.style.padding = "8px 4px";
-        li.style.borderBottom = "1px solid black";
+        // li.style.padding = "8px 4px";
+        // li.style.borderBottom = "1px solid black";
         var cb = document.createElement("input");
         cb.setAttribute("type", "checkbox");
         cb.setAttribute("value", element);
-        cb.style.margin = "0 4px";
+        // cb.style.margin = "0 4px";
         var span = document.createElement("span");
         span.textContent = element.charAt(0).toUpperCase() + element.slice(1);
         var sel = document.createElement("select");
-        sel.style.margin = "0 4px";
+        // sel.style.margin = "0 4px";
         var n;
         switch (element) {
             case "javascript":
@@ -59,11 +60,37 @@ function initStartPage() {
             opt.textContent = i + 1;
             sel.appendChild(opt);
         }
-        li.appendChild(cb);
-        li.appendChild(span);
-        li.appendChild(sel);
-        languagesUL.appendChild(li);
+
+        var row = document.createElement("div");
+        row.setAttribute("class", "row language-row");
+        var col = [];
+        for (var i = 0; i < 3; i++) {
+            col[i] = document.createElement("div");
+            col[i].setAttribute("class", "col-2 p-0");
+        }
+        col[1].setAttribute("class", "col-8 p-0");
+
+        col[0].appendChild(cb);
+        col[1].appendChild(span);
+        col[2].appendChild(sel);
+        col.forEach(c => {
+            li.appendChild(c);
+        });
+
+        row.appendChild(li);
+        li.style.display = "flex";
+        li.style.width = "160px";
+
+        languagesUL.appendChild(row);
+
+        // li.appendChild(cb);
+        // li.appendChild(span);
+        // li.appendChild(sel);
+        // languagesUL.appendChild(li);
+
+
     });
+
     setLanguages(getLangSettingsFromStorage());
     localStorage.setItem("code-shotgun-settings", JSON.stringify(getLangSettingsArray()));
 }
@@ -72,9 +99,6 @@ function getLangSettingsFromStorage() {
     var lsArray = JSON.parse(localStorage.getItem("code-shotgun-settings"));
     if (lsArray === null || lsArray.length < 1) {
         lsArray = [{ lang: "javascript", num: 5 }];
-        // lsArray = [{ lang: "javascript", num: 1 }, { lang: "git", num: 5 }];
-        // lsArray = [{ lang: "git", num: 3 }];
-        // lsArray = [{ lang: "javascript", num: 5 }, { lang: "git", num: 4 }];
     }
     return lsArray;
 }
@@ -84,14 +108,13 @@ function setLanguages(langSettingsArray) {
     var qArray = [];
     console.log(langSettingsArray);
     langSettingsArray.forEach(langSetting => {
-        // cbArray = languagesUL.querySelectorAll("input");
         var liArray = languagesUL.querySelectorAll("li");
         console.log(liArray);
         liArray.forEach(li => {
             if (li.getAttribute("value") === langSetting.lang) {
-                console.log(li.childNodes[0]);
-                li.childNodes[0].checked = true;
-                li.childNodes[2].value = langSetting.num;
+                console.log(li.querySelector("input"));
+                li.querySelector("input").checked = true;
+                li.querySelector("input").value = langSetting.num;
             }
         });
         switch (langSetting.lang) {
@@ -138,9 +161,9 @@ function getLangSettingsArray() {
     var a = [];
     var liArray = languagesUL.querySelectorAll("li");
     liArray.forEach(li => {
-        if (li.childNodes[0].checked) {
+        if (li.querySelector("input").checked) {
             var l = li.getAttribute("value");
-            var n = li.childNodes[2].value;
+            var n = li.querySelector("select").value;
             a.push({ lang: l, num: n })
         }
     });
