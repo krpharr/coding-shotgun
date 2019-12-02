@@ -114,7 +114,8 @@ function setLanguages(langSettingsArray) {
             if (li.getAttribute("value") === langSetting.lang) {
                 console.log(li.querySelector("input"));
                 li.querySelector("input").checked = true;
-                li.querySelector("input").value = langSetting.num;
+                li.querySelector("select").value = langSetting.num;
+                li.querySelector("select").style.display = "block";
             }
         });
         switch (langSetting.lang) {
@@ -170,7 +171,13 @@ function getLangSettingsArray() {
     return a;
 }
 
-function resetLangSettings() {
+function resetLangSettings(event) {
+    console.log("*************");
+    console.log(event.target);
+    console.log(event.target.closest("li"));
+    console.log(event.target.closest("li").querySelector("select"));
+    var sel = event.target.closest("li").querySelector("select");
+    event.target.checked ? sel.style.display = "block" : sel.style.display = "none";
     var langSettingsArray = getLangSettingsArray();
     if (langSettingsArray.length < 1) {
         console.log("EMPTY ARRAY")
