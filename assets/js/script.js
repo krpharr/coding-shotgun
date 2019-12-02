@@ -18,7 +18,7 @@ var highscoresContainer = document.querySelector(".highscores-container");
 
 var containerArray = [startContainer, quizContainer, resultsContainer, highscoresContainer];
 
-window.name = "code-shotgun";
+var userQuizObjectArray = []; //for storing user answers and diplaying results
 
 var totalSeconds = 75;
 var secondsLeft = 0;
@@ -26,7 +26,6 @@ var interval;
 var score;
 var quizArray = [];
 var currentPromt;
-var saveQuestionsArray = [];
 
 initStartPage();
 
@@ -126,6 +125,9 @@ function setLanguages(langSettingsArray) {
                 qArray = cssQUIZ.slice();
                 break;
         }
+        qArray.forEach(q => {
+            q.type = langSetting.lang;
+        });
         qArray.sort(function(a, b) { return 0.5 - Math.random() });
         console.log(qArray);
         var i = qArray.length - parseInt(langSetting.num);
@@ -197,6 +199,7 @@ function resetLangSettings() {
 function startQuiz() {
     resetLangSettings();
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
+    userQuizObjectArray = [];
     // showElement(".start-container", false);
     // showElement(".quiz-container", true);
     setFocus(quizContainer);
@@ -239,17 +242,26 @@ function clearChoices(ul) {
 function checkAnswer(event) {
     console.log(event.target.textContent);
     let msg = "";
-    event.target.textContent === currentPromt.answer ? msg = "Correct!" : msg = "Incorrect";
+    event.target.textContent === currentPromt.answer ? msg = "Correct" : msg = "Incorrect";
     resultSpan.textContent = msg;
     setTimeout(function() {
         resultSpan.textContent = "";
     }, 2000);
-    if (msg === "Correct!") {
+    if (msg === "Correct") {
 
     } else {
-        saveQuestionsArray.push(currentPromt);
+        // saveQuestionsArray.push(currentPromt);
         secondsLeft -= 15;
     }
+    var userQuizObj = {
+        prompt: currentPromt,
+        user: event.target.textContent,
+        result: msg,
+        time: secondsLeft
+    };
+
+    userQuizObjectArray.push(userQuizObj);
+
     var len = quizArray.length;
     if (len === 1) {
         // quiz over
