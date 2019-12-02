@@ -80,22 +80,32 @@
                 <button id="enterBtnID">Enter</button>
             </div>
             <div>
-                <a>View High Scores</a>
+                <a href="javascript:viewHighScores()" style="color:#51C22B;">View High Scores</a>
             </div>
 
 
         </div>
 
         <div class="highscores-container" id="highscoresContainerID">
-            <div class="row">
-                <div class="col-sm-12">
-                    <a href="javascript:initStartPage()">Back to c0de-sh0tgun</a>
-                    <ul class="scores-container" id="scoresUlID">
-
-                    </ul>
-                    <a href="javascript:initStartPage()">Back to c0de-sh0tgun</a>
+            <div class="row mt-5">
+                <div class="col-sm-12 text-center">
+                    <a href="javascript:setFocus(startContainer)" style="color:#51C22B;">Back to c0de-sh0tgun</a>
                 </div>
+            </div>
+            <div class="row  justify-content-center">
+                <!-- <div class="col-sm-12 justify-content-center"> -->
 
+                <ul class="scores-container" id="scoresUlID" style="list-style: none;">
+
+                </ul>
+
+                <!-- </div> -->
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <a href="javascript:setFocus(startContainer)" style="color:#51C22B;">Back to c0de-sh0tgun</a>
+                </div>
             </div>
 
         </div>

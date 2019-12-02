@@ -301,7 +301,7 @@ function saveInitialsToStorage() {
     var highscores = getHighScores();
     highscores.push(score);
     localStorage.setItem("highscores", JSON.stringify(highscores));
-    reset();
+    setFocus(startContainer);
 }
 
 function getHighScores() {
@@ -317,8 +317,18 @@ function viewHighScores() {
     // showElement(".results-container", false);
     // showElement(".start-container", false);
     // showElement(".highscores-container", true);
+    clearChoices(scoresUl);
     setFocus(highscoresContainer);
+    var highscores = getHighScores();
 
+    highscores.sort((a, b) => (a.score > b.score) ? -1 : 1);
+
+    highscores.forEach(element => {
+        var li = document.createElement("li");
+        var str = element.initials + "\t" + element.score;
+        li.textContent = str;
+        scoresUl.appendChild(li);
+    });
 }
 
 function showElement(selector, show) {
