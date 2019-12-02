@@ -10,6 +10,7 @@ var enterBtn = document.querySelector("#enterBtnID");
 var languagesUL = document.querySelector("#languagesUlID");
 var totalTimeSpan = document.querySelector("#totalTimeSpanID");
 var scoresUl = document.querySelector("#scoresUlID");
+var userQuizOl = document.querySelector("#userQuizOlID");
 
 var startContainer = document.querySelector(".start-container");
 var quizContainer = document.querySelector(".quiz-container");
@@ -282,8 +283,24 @@ function checkAnswer(event) {
 
 function displayResults() {
     // showElement(".results-container", true);
+    clearChoices(userQuizOl);
     setFocus(resultsContainer);
     scoreSpan.textContent = secondsLeft;
+    userQuizObjectArray.forEach(qObj => {
+        var li = document.createElement("li");
+        var ul = document.createElement("ul");
+        ul.style.listStyle = "none";
+        for (var i = 0; i < 5; i++) {
+            ul.appendChild(document.createElement("li"));
+        }
+        ul.childNodes[0].textContent = qObj.prompt.type;
+        ul.childNodes[1].textContent = qObj.prompt.title;
+        ul.childNodes[2].textContent = "User:\t" + qObj.user;
+        ul.childNodes[3].textContent = qObj.result;
+        ul.childNodes[4].textContent = "Time:\t" + qObj.time + " seconds";
+        li.appendChild(ul);
+        userQuizOl.appendChild(li);
+    });
 }
 
 function reset() {
