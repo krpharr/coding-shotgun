@@ -1,3 +1,12 @@
+* {
+    font-family: monospace;
+    color: rgb(0, 162, 255);
+}
+
+body {
+    background-color: #242425;
+}
+
 .main-view {}
 
 .start-container {
@@ -25,13 +34,32 @@
 #languagesUlID {
     padding: 0;
     /* margin-left: -28px; */
-    margin-bottom: 36px;
+    margin-bottom: 24px;
+}
+
+#languagesUlID span {
+    color: #AF7C65;
 }
 
 .language-row {
     padding: 4px;
     margin: 4px;
     border: solid 1px black;
+}
+
+#totalTimePID {
+    color: rgb(187, 98, 187);
+}
+
+#totalTimeSpanID {
+    color: #C2C42F;
+}
+
+#startBtnID {
+    margin: 40px 0;
+    font-size: xx-large;
+    background-color: #2B2B32;
+    color: #2F8EF8;
 }
 
 @media only screen and (min-width: 320px) {}
