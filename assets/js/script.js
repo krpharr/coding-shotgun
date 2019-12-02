@@ -171,13 +171,19 @@ function getLangSettingsArray() {
     return a;
 }
 
-function resetLangSettings(event) {
+function languagesULEventHandler(event) {
     console.log("*************");
-    console.log(event.target);
+    console.log(event.target.type);
     console.log(event.target.closest("li"));
     console.log(event.target.closest("li").querySelector("select"));
-    var sel = event.target.closest("li").querySelector("select");
-    event.target.checked ? sel.style.display = "block" : sel.style.display = "none";
+    if (event.target.type === "checkbox") {
+        var sel = event.target.closest("li").querySelector("select");
+        event.target.checked ? sel.style.display = "block" : sel.style.display = "none";
+    }
+    resetLangSettings();
+}
+
+function resetLangSettings() {
     var langSettingsArray = getLangSettingsArray();
     if (langSettingsArray.length < 1) {
         console.log("EMPTY ARRAY")
@@ -300,4 +306,4 @@ startBtn.addEventListener("click", startQuiz);
 choicesUL.addEventListener("click", checkAnswer);
 cancelBtn.addEventListener("click", reset);
 enterBtn.addEventListener("click", saveInitialsToStorage);
-languagesUL.addEventListener("change", resetLangSettings);
+languagesUL.addEventListener("change", languagesULEventHandler);
