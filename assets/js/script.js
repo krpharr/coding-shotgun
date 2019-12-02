@@ -9,6 +9,14 @@ var cancelBtn = document.querySelector("#cancelBtnID");
 var enterBtn = document.querySelector("#enterBtnID");
 var languagesUL = document.querySelector("#languagesUlID");
 var totalTimeSpan = document.querySelector("#totalTimeSpanID");
+var scoresUl = document.querySelector("#scoresUlID");
+
+var startContainer = document.querySelector(".start-container");
+var quizContainer = document.querySelector(".quiz-container");
+var resultsContainer = document.querySelector(".results-container");
+var highscoresContainer = document.querySelector(".highscores-container");
+
+var containerArray = [startContainer, quizContainer, resultsContainer, highscoresContainer];
 
 window.name = "code-shotgun";
 
@@ -23,6 +31,7 @@ var saveQuestionsArray = [];
 initStartPage();
 
 function initStartPage() {
+    clearChoices(languagesUL);
     languagesArray.forEach(element => {
         var li = document.createElement("li");
         li.setAttribute("value", element);
@@ -129,7 +138,7 @@ function setLanguages(langSettingsArray) {
         });
     });
     totalSeconds = quizArray.length * 15;
-    totalTimeSpan.textContent = totalSeconds;
+    totalTimeSpan.textContent = totalSeconds + " secs";
 }
 
 function startTimer() {
@@ -151,9 +160,12 @@ function getLangSettingsArray() {
     var liArray = languagesUL.querySelectorAll("li");
     liArray.forEach(li => {
         if (li.querySelector("input").checked) {
+            li.querySelector("select").style.display = "block";
             var l = li.getAttribute("value");
             var n = li.querySelector("select").value;
             a.push({ lang: l, num: n })
+        } else {
+            li.querySelector("select").style.display = "none";
         }
     });
     return a;
@@ -185,16 +197,17 @@ function resetLangSettings() {
 function startQuiz() {
     resetLangSettings();
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
-    showElement(".start-container", false);
-    showElement(".quiz-container", true);
+    // showElement(".start-container", false);
+    // showElement(".quiz-container", true);
+    setFocus(quizContainer);
     startTimer();
     displayPromt();
 }
 
 function endQuiz() {
     clearInterval(interval);
-    clearChoices();
-    showElement(".quiz-container", false);
+    clearChoices(choicesUL);
+    // showElement(".quiz-container", false);
     displayResults();
 }
 
@@ -203,7 +216,7 @@ function displayPromt() {
     currentPromt = quizArray[i];
     console.log(currentPromt.title);
     promtSpan.textContent = currentPromt.title;
-    clearChoices();
+    clearChoices(choicesUL);
     var i = 0;
     colorArray = ["#63B9EA", "#AF7C65", "#C16DEB", "#C2C42F"];
     colorArray.sort(function(a, b) { return 0.5 - Math.random() });
@@ -217,9 +230,9 @@ function displayPromt() {
     });
 }
 
-function clearChoices() {
-    while (choicesUL.hasChildNodes()) {
-        choicesUL.removeChild(choicesUL.firstChild);
+function clearChoices(ul) {
+    while (ul.hasChildNodes()) {
+        ul.removeChild(ul.firstChild);
     }
 }
 
@@ -256,13 +269,23 @@ function checkAnswer(event) {
 }
 
 function displayResults() {
-    showElement(".results-container", true);
+    // showElement(".results-container", true);
+    setFocus(resultsContainer);
     scoreSpan.textContent = secondsLeft;
 }
 
 function reset() {
-    showElement(".results-container", false);
-    showElement(".start-container", true);
+    // showElement(".highscores-container", false);
+    // showElement(".quiz-container", false);
+    // showElement(".results-container", false);
+    // showElement(".start-container", true);
+    setFocus(startContainer);
+}
+
+function setFocus(container) {
+    containerArray.forEach(c => {
+        c === container ? c.style.display = "block" : c.style.display = "none";
+    });
 }
 
 function saveInitialsToStorage() {
@@ -288,6 +311,14 @@ function getHighScores() {
         hs = [];
     }
     return hs;
+}
+
+function viewHighScores() {
+    // showElement(".results-container", false);
+    // showElement(".start-container", false);
+    // showElement(".highscores-container", true);
+    setFocus(highscoresContainer);
+
 }
 
 function showElement(selector, show) {

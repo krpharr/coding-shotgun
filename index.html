@@ -19,7 +19,7 @@
         <div class="start-container mt-5" id="startContainerID">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <a href="scores.html" style="color:#51C22B;" target="_scores">View High Scores</a>
+                    <a href="javascript:viewHighScores()" style="color:#51C22B;">View High Scores</a>
                 </div>
             </div>
             <div class="row">
@@ -80,9 +80,23 @@
                 <button id="enterBtnID">Enter</button>
             </div>
             <div>
-                <a href="scores.html" target="_scores">View High Scores</a>
+                <a>View High Scores</a>
             </div>
 
+
+        </div>
+
+        <div class="highscores-container" id="highscoresContainerID">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="javascript:initStartPage()">Back to c0de-sh0tgun</a>
+                    <ul class="scores-container" id="scoresUlID">
+
+                    </ul>
+                    <a href="javascript:initStartPage()">Back to c0de-sh0tgun</a>
+                </div>
+
+            </div>
 
         </div>
 
