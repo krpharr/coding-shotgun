@@ -378,9 +378,14 @@ function showElement(selector, show) {
     show ? el.style.display = "block" : el.style.display = "none";
 }
 
+function initalInputChange(event) {
+    initialsInput.value = initialsInput.value.toUpperCase();
+}
+
 startBtn.addEventListener("click", startQuiz);
 choicesUL.addEventListener("click", checkAnswer);
 cancelBtn.addEventListener("click", reset);
 enterBtn.addEventListener("click", saveInitialsToStorage);
 languagesUL.addEventListener("change", languagesULEventHandler);
-viewRecQuizToggleEl.addEventListener("click", toggleViewRecQuiz)
+viewRecQuizToggleEl.addEventListener("click", toggleViewRecQuiz);
+initialsInput.addEventListener("keyup", initalInputChange);

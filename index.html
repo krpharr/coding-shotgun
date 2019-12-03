@@ -87,7 +87,8 @@
             <div class="row">
                 <div class="col-sm-12 text-center pt-3">
                     <span class="green" style="display:block;">Enter Initials</span>
-                    <input type="text" id="initialsInputID" maxlength="3">
+                    <input type="text" id="initialsInputID" maxlength="3" onkeypress="return (event.charCode > 64 && 
+                    event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
 
                 </div>
             </div>
