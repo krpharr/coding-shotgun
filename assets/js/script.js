@@ -5,6 +5,7 @@ var promtSpan = document.querySelector("#promtSpanID");
 var choicesUL = document.querySelector("#choicesULID");
 var resultsEl = document.querySelector("#resultsElID");
 var resultSpan = document.querySelector("#resultSpanID");
+var viewRecQuizToggleEl = document.querySelector("#viewRecQuizToggleID");
 var scoreSpan = document.querySelector("#scoreSpanID");
 var timeSpan = document.querySelector("#timeSpanID");
 var questionsSpan = document.querySelector("#questionsSpanID");
@@ -27,6 +28,7 @@ var interval;
 var finalScore;
 var quizArray = [];
 var currentPromt;
+var viewRecQuiz = false;
 
 initStartPage();
 
@@ -309,6 +311,13 @@ function displayResults() {
 
 }
 
+function toggleViewRecQuiz() {
+    viewRecQuiz ? viewRecQuiz = false : viewRecQuiz = true;
+    viewRecQuiz ? userQuizOl.style.display = "block" : userQuizOl.style.display = "none";
+    var span = document.querySelector("#viewRecQuizSpanID");
+    viewRecQuiz ? span.textContent = "Close" : span.textContent = "Review Quiz";
+}
+
 function reset() {
     setFocus(startContainer);
 }
@@ -374,3 +383,4 @@ choicesUL.addEventListener("click", checkAnswer);
 cancelBtn.addEventListener("click", reset);
 enterBtn.addEventListener("click", saveInitialsToStorage);
 languagesUL.addEventListener("change", languagesULEventHandler);
+viewRecQuizToggleEl.addEventListener("click", toggleViewRecQuiz)

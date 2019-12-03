@@ -8,6 +8,14 @@ body {
     background-color: #242426;
 }
 
+select {
+    background-color: #242426;
+    /* color: #2F8EF8; */
+    /* color: #C2C42F; */
+    color: #AF7C65;
+    border: none;
+}
+
 .main-view {}
 
 
@@ -156,6 +164,17 @@ body {
     color: #2F8EF8;
     border-radius: 50%;
     padding: 16px;
+}
+
+#viewRecQuizToggleID {
+    background-color: black;
+    color: #2F8EF8;
+    border: 1px solid #2F8EF8;
+    width: 100%;
+}
+
+#viewRecQuizToggleID:hover {
+    border: 1px solid #63B9EA;
 }
 
 .green {
