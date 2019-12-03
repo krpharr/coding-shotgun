@@ -113,7 +113,8 @@ body {
 
 #scoresUlID li {}
 
-#aViewHighScoresID {
+#aViewHighScoresID,
+#aHomeID {
     position: fixed;
     top: 8px;
     left: 16px;
