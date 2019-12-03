@@ -13,16 +13,12 @@ var languagesUL = document.querySelector("#languagesUlID");
 var totalTimeSpan = document.querySelector("#totalTimeSpanID");
 var scoresUl = document.querySelector("#scoresUlID");
 var userQuizOl = document.querySelector("#userQuizOlID");
-
 var startContainer = document.querySelector(".start-container");
 var quizContainer = document.querySelector(".quiz-container");
 var resultsContainer = document.querySelector(".results-container");
 var highscoresContainer = document.querySelector(".highscores-container");
-
 var containerArray = [startContainer, quizContainer, resultsContainer, highscoresContainer];
-
 var userQuizObjectArray = []; //for storing user answers and diplaying results
-
 var totalSeconds = 75;
 var secondsLeft = 0;
 var interval;
@@ -48,18 +44,18 @@ function initStartPage() {
         cb.setAttribute("value", element);
         // cb.style.margin = "0 4px";
         var span = document.createElement("span");
-        span.textContent = element.charAt(0).toUpperCase() + element.slice(1);
+        span.textContent = element;
         var sel = document.createElement("select");
         // sel.style.margin = "0 4px";
         var n;
         switch (element) {
-            case "javascript":
+            case "javaScript":
                 n = javascriptQUIZ.length;
                 break;
             case "git":
                 n = gitQUIZ.length;
                 break;
-            case "css":
+            case "CSS":
                 n = cssQUIZ.length;
                 break;
         }
@@ -98,7 +94,7 @@ function initStartPage() {
 function getLangSettingsFromStorage() {
     var lsArray = JSON.parse(localStorage.getItem("code-shotgun-settings"));
     if (lsArray === null || lsArray.length < 1) {
-        lsArray = [{ lang: "javascript", num: 5 }];
+        lsArray = [{ lang: "javaScript", num: 5 }];
     }
     return lsArray;
 }
@@ -119,13 +115,13 @@ function setLanguages(langSettingsArray) {
             }
         });
         switch (langSetting.lang) {
-            case "javascript":
+            case "javaScript":
                 qArray = javascriptQUIZ.slice();
                 break;
             case "git":
                 qArray = gitQUIZ.slice();
                 break;
-            case "css":
+            case "CSS":
                 qArray = cssQUIZ.slice();
                 break;
         }
@@ -230,7 +226,6 @@ function displayPromt() {
         i++;
         li.textContent = element;
         choicesUL.appendChild(li);
-
     });
 }
 
@@ -259,9 +254,7 @@ function checkAnswer(event) {
         result: msg,
         time: secondsLeft
     };
-
     userQuizObjectArray.push(userQuizObj);
-
     var len = quizArray.length;
     if (len === 1) {
         // quiz over
