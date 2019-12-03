@@ -1,5 +1,6 @@
 var startBtn = document.querySelector("#startBtnID");
 var timerSpan = document.querySelector("#timerSpanID");
+var languageSpan = document.querySelector("#languageSpanID");
 var promtSpan = document.querySelector("#promtSpanID");
 var choicesUL = document.querySelector("#choicesULID");
 var resultsEl = document.querySelector("#resultsElID");
@@ -217,6 +218,7 @@ function displayPromt() {
     var i = Math.floor(Math.random() * quizArray.length);
     currentPromt = quizArray[i];
     console.log(currentPromt.title);
+    languageSpan.textContent = currentPromt.type;
     promtSpan.textContent = currentPromt.title;
     clearChoices(choicesUL);
     var i = 0;

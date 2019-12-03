@@ -82,6 +82,18 @@ body {
     color: #ADACAC;
 }
 
+#promtSpanID,
+#languageSpanID {
+    display: block;
+}
+
+#languageSpanID {
+    background-color: black;
+    width: fit-content;
+    padding: 2px;
+    border-radius: 4px;
+}
+
 #choicesULID {
     font-size: large;
 }
