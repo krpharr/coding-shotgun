@@ -26,7 +26,7 @@ var userQuizObjectArray = []; //for storing user answers and diplaying results
 var totalSeconds = 75;
 var secondsLeft = 0;
 var interval;
-var score;
+var finalScore;
 var quizArray = [];
 var currentPromt;
 
@@ -204,8 +204,6 @@ function startQuiz() {
     resetLangSettings();
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
     userQuizObjectArray = [];
-    // showElement(".start-container", false);
-    // showElement(".quiz-container", true);
     setFocus(quizContainer);
     startTimer();
     displayPromt();
@@ -214,7 +212,6 @@ function startQuiz() {
 function endQuiz() {
     clearInterval(interval);
     clearChoices(choicesUL);
-    // showElement(".quiz-container", false);
     displayResults();
 }
 
@@ -254,7 +251,6 @@ function checkAnswer(event) {
     if (msg === "Correct") {
 
     } else {
-        // saveQuestionsArray.push(currentPromt);
         secondsLeft -= 15;
     }
     var userQuizObj = {
@@ -285,12 +281,12 @@ function checkAnswer(event) {
 }
 
 function displayResults() {
-    // showElement(".results-container", true);
     clearChoices(userQuizOl);
     initialsInput.value = "";
     initialsInput.setAttribute("placeholder", "___");
     setFocus(resultsContainer);
-    scoreSpan.textContent = ((secondsLeft / totalSeconds) * 100).toFixed(0);
+    finalScore = ((secondsLeft / totalSeconds) * 100).toFixed(0);
+    scoreSpan.textContent = finalScore;
     timeSpan.textContent = secondsLeft;
     questionsSpan.textContent = userQuizObjectArray.length;
     userQuizObjectArray.forEach(qObj => {
@@ -312,10 +308,6 @@ function displayResults() {
 }
 
 function reset() {
-    // showElement(".highscores-container", false);
-    // showElement(".quiz-container", false);
-    // showElement(".results-container", false);
-    // showElement(".start-container", true);
     setFocus(startContainer);
 }
 
@@ -333,7 +325,7 @@ function saveInitialsToStorage() {
     }
     var score = {
         initials: initials,
-        score: secondsLeft
+        score: finalScore
     };
     var highscores = getHighScores();
     highscores.push(score);
@@ -351,9 +343,6 @@ function getHighScores() {
 }
 
 function viewHighScores() {
-    // showElement(".results-container", false);
-    // showElement(".start-container", false);
-    // showElement(".highscores-container", true);
     clearChoices(scoresUl);
     setFocus(highscoresContainer);
     var highscores = getHighScores();

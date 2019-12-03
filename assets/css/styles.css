@@ -1,5 +1,6 @@
 * {
     font-family: monospace;
+    font-size: 1em;
     color: #63B9EA;
 }
 
@@ -19,7 +20,7 @@ body {
 .results-container,
 .highscores-container {
     display: none;
-    margin-top: 56px;
+    margin: auto auto;
 }
 
 
@@ -64,7 +65,7 @@ body {
 
 #startBtnID {
     margin: 40px 0;
-    font-size: xx-large;
+    font-size: 10vh;
     background-color: #242426;
     color: #2F8EF8;
 }
@@ -82,7 +83,7 @@ body {
 }
 
 #choicesULID {
-    font-size: 1rem;
+    font-size: large;
 }
 
 #choicesULID li {
@@ -121,10 +122,11 @@ body {
 }
 
 #initialsInputID {
-    width: 124px;
-    height: 80px;
+    width: 200px;
+    /* height: 80px; */
     margin: 8px;
     font-size: 4rem;
+    text-align: center;
     letter-spacing: 4px;
     background-color: #242426;
     color: #51C22B;

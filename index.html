@@ -16,15 +16,15 @@
 
     <div class="container">
 
-        <div class="start-container mt-5" id="startContainerID">
+        <div class="start-container" id="startContainerID">
             <!-- <div class="row"> -->
             <!-- <div class="col-sm-12 text-center"> -->
             <a href="javascript:viewHighScores()" id="aViewHighScoresID" style="color:#51C22B;">View High Scores</a>
             <!-- </div> -->
             <!-- </div> -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="languages-container mt-3">
+            <div class="row" style="height:40vh;">
+                <div class="col-sm-12 align-self-center">
+                    <div class="languages-container">
                         <div class="row justify-content-center">
                             <ul id="languagesUlID">
                             </ul>
@@ -32,13 +32,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
+            <div class="row" style="height:10vh;">
+                <div class="col-sm-12 text-center align-self-center">
                     <p id="totalTimePID">Total Time:</p><span id="totalTimeSpanID"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
+            <div class="row" style="height:30vh;">
+                <div class="col-sm-12 text-center align-self-center">
                     <button id="startBtnID" class="btn-info">START</button>
                 </div>
             </div>
@@ -46,15 +46,15 @@
 
         <div class="quiz-container" id="quizContainerID">
             <span id="timerSpanID"></span>
-            <div class="row mt-3">
-                <div class="col-sm-12">
+            <div class="row mt-5">
+                <div class="col-sm-12 align-self-center">
                     <div class="prompt">
                         <span id="promtSpanID"></span>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 align-self-center">
                     <ul id="choicesULID">
                     </ul>
                 </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 text-center pt-3">
-                    <span class="green" style="display:block;">Enter your initials.</span>
+                    <span class="green" style="display:block;">Enter Initials</span>
                     <input type="text" id="initialsInputID" maxlength="3">
 
                 </div>
@@ -109,7 +109,7 @@
         </div>
 
         <div class="highscores-container" id="highscoresContainerID">
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col-sm-12 text-center">
                     <a href="javascript:setFocus(startContainer)" style="color:#51C22B;">Back to c0de-sh0tgun</a>
                 </div>
