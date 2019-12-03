@@ -109,6 +109,7 @@ body {
 
 #scoresUlID {
     font-size: 3rem;
+    padding: 0;
 }
 
 #scoresUlID li {}
