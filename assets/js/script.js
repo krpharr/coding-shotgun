@@ -32,6 +32,7 @@ initStartPage();
 
 function initStartPage() {
     setFocus(startContainer);
+    getHighScores();
     clearChoices(languagesUL);
     languagesArray.forEach(element => {
         var li = document.createElement("li");
@@ -305,6 +306,7 @@ function displayResults() {
         li.appendChild(ul);
         userQuizOl.appendChild(li);
     });
+
 }
 
 function reset() {
@@ -330,6 +332,7 @@ function saveInitialsToStorage() {
     var highscores = getHighScores();
     highscores.push(score);
     localStorage.setItem("highscores", JSON.stringify(highscores));
+    getHighScores();
     setFocus(startContainer);
 }
 
@@ -338,6 +341,9 @@ function getHighScores() {
     var hs = JSON.parse(localStorage.getItem("highscores"));
     if (hs === null) {
         hs = [];
+        showElement("#aViewHighScoresID", false);
+    } else {
+        showElement("#aViewHighScoresID", true);
     }
     return hs;
 }
