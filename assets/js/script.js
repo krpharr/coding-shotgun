@@ -2,6 +2,7 @@ var startBtn = document.querySelector("#startBtnID");
 var timerSpan = document.querySelector("#timerSpanID");
 var promtSpan = document.querySelector("#promtSpanID");
 var choicesUL = document.querySelector("#choicesULID");
+var resultsEl = document.querySelector("#resultsElID");
 var resultSpan = document.querySelector("#resultSpanID");
 var scoreSpan = document.querySelector("#scoreSpanID");
 var timeSpan = document.querySelector("#timeSpanID");
@@ -201,6 +202,7 @@ function startQuiz() {
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
     userQuizObjectArray = [];
     setFocus(quizContainer);
+    showElement("#resultsElID", false);
     startTimer();
     displayPromt();
 }
@@ -239,15 +241,9 @@ function checkAnswer(event) {
     console.log(event.target.textContent);
     let msg = "";
     event.target.textContent === currentPromt.answer ? msg = "Correct" : msg = "Incorrect";
+    msg === "Correct" ? resultSpan.style.backgroundColor = "#51C22B" : resultSpan.style.backgroundColor = "red";
+    showElement("#resultsElID", true);
     resultSpan.textContent = msg;
-    setTimeout(function() {
-        resultSpan.textContent = "";
-    }, 2000);
-    if (msg === "Correct") {
-
-    } else {
-        secondsLeft -= 15;
-    }
     var userQuizObj = {
         prompt: currentPromt,
         user: event.target.textContent,
@@ -255,6 +251,15 @@ function checkAnswer(event) {
         time: secondsLeft
     };
     userQuizObjectArray.push(userQuizObj);
+    setTimeout(function() {
+        showElement("#resultsElID", false);
+        resultSpan.textContent = "";
+    }, 1000);
+    if (msg === "Correct") {
+
+    } else {
+        secondsLeft -= 15;
+    }
     var len = quizArray.length;
     if (len === 1) {
         // quiz over
@@ -351,6 +356,7 @@ function viewHighScores() {
 }
 
 function showElement(selector, show) {
+    //showElement(".elName", false);
     let el = document.querySelector(selector);
     show ? el.style.display = "block" : el.style.display = "none";
 }
