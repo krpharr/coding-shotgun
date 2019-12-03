@@ -9,22 +9,27 @@ body {
 
 .main-view {}
 
-.start-container {
-    display: block;
-}
 
-.quiz-container {
+/* .start-container {
+    display: blnonock;
+} */
+
+.start-container,
+.quiz-container,
+.results-container,
+.highscores-container {
     display: none;
     margin-top: 56px;
 }
 
+
+/* 
 .results-container {
     display: none;
 }
 
 .languages-container {
-    /* text-align: center; */
-}
+} */
 
 #timerSpanID {
     position: fixed;
@@ -94,6 +99,62 @@ body {
 }
 
 #scoresUlID li {}
+
+#aViewHighScoresID {
+    position: fixed;
+    top: 8px;
+    left: 16px;
+}
+
+#enterBtnID {
+    margin: 16px 0;
+    font-size: large;
+    background-color: #242426;
+    color: #2F8EF8;
+}
+
+#cancelBtnID {
+    margin: 16px 0;
+    font-size: large;
+    background-color: #242426;
+    color: #C16DEB;
+}
+
+#initialsInputID {
+    width: 124px;
+    height: 80px;
+    margin: 8px;
+    font-size: 4rem;
+    letter-spacing: 4px;
+    background-color: #242426;
+    color: #51C22B;
+    border: 1px solid #51C22B;
+    border-radius: 10px;
+}
+
+.green {
+    color: #51C22B;
+}
+
+.yellow {
+    color: #C2C42F;
+}
+
+.magenta {
+    color: #C16DEB;
+}
+
+.lightblue {
+    color: #63B9EA;
+}
+
+.blue {
+    color: #2F8EF8;
+}
+
+.orange {
+    color: #AF7C65;
+}
 
 @media only screen and (min-width: 320px) {}
 

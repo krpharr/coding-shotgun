@@ -4,6 +4,8 @@ var promtSpan = document.querySelector("#promtSpanID");
 var choicesUL = document.querySelector("#choicesULID");
 var resultSpan = document.querySelector("#resultSpanID");
 var scoreSpan = document.querySelector("#scoreSpanID");
+var timeSpan = document.querySelector("#timeSpanID");
+var questionsSpan = document.querySelector("#questionsSpanID");
 var initialsInput = document.querySelector("#initialsInputID");
 var cancelBtn = document.querySelector("#cancelBtnID");
 var enterBtn = document.querySelector("#enterBtnID");
@@ -31,6 +33,7 @@ var currentPromt;
 initStartPage();
 
 function initStartPage() {
+    setFocus(startContainer);
     clearChoices(languagesUL);
     languagesArray.forEach(element => {
         var li = document.createElement("li");
@@ -284,12 +287,17 @@ function checkAnswer(event) {
 function displayResults() {
     // showElement(".results-container", true);
     clearChoices(userQuizOl);
+    initialsInput.value = "";
+    initialsInput.setAttribute("placeholder", "___");
     setFocus(resultsContainer);
-    scoreSpan.textContent = secondsLeft;
+    scoreSpan.textContent = ((secondsLeft / totalSeconds) * 100).toFixed(0);
+    timeSpan.textContent = secondsLeft;
+    questionsSpan.textContent = userQuizObjectArray.length;
     userQuizObjectArray.forEach(qObj => {
         var li = document.createElement("li");
         var ul = document.createElement("ul");
         ul.style.listStyle = "none";
+        ul.style.padding = "0";
         for (var i = 0; i < 5; i++) {
             ul.appendChild(document.createElement("li"));
         }

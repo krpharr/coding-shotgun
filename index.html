@@ -17,11 +17,11 @@
     <div class="container">
 
         <div class="start-container mt-5" id="startContainerID">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <a href="javascript:viewHighScores()" style="color:#51C22B;">View High Scores</a>
-                </div>
-            </div>
+            <!-- <div class="row"> -->
+            <!-- <div class="col-sm-12 text-center"> -->
+            <a href="javascript:viewHighScores()" id="aViewHighScoresID" style="color:#51C22B;">View High Scores</a>
+            <!-- </div> -->
+            <!-- </div> -->
             <div class="row">
                 <div class="col-sm-12">
                     <div class="languages-container mt-3">
@@ -70,37 +70,42 @@
         <div class="results-container" id="resultsContainerID">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <span>Your score: <span id="scoreSpanID"></span></span>
+                    <ul style="list-style-type:none; padding:0;">
+                        <li><span class="yellow">User Score: <span class="orange" id="scoreSpanID"></span></span>
+                        </li>
+                        <li><span class="yellow">Total Questions: <span class="orange" id="questionsSpanID"></span></span>
+                        </li>
+                        <li><span class="yellow">Remaining Time: <span class="orange" id="timeSpanID"></span></span>
+                        </li>
+                    </ul>
+
                 </div>
 
             </div>
             <div class="row">
-                <div class="col-sm-12 text-center">
-                    <span style="display:block;">Enter your initials.</span>
-                    <input type="text" id="initialsInputID" maxlength="3" style="width:2rem;">
+                <div class="col-sm-12 text-center pt-3">
+                    <span class="green" style="display:block;">Enter your initials.</span>
+                    <input type="text" id="initialsInputID" maxlength="3">
 
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 text-center">
-                    <button id="cancelBtnID">Cancel</button>
-                    <button id="enterBtnID">Enter</button>
+                <div class="col-sm-12 text-center pt-2">
+                    <button id="cancelBtnID" class="btn-info">Cancel</button>
+                    <button id="enterBtnID" class="btn-info">Enter</button>
 
                 </div>
             </div>
-            <div class="row">
+            <div class="row pt-5">
                 <div class="col-sm-12">
                     <ol id="userQuizOlID">
 
                     </ol>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <a href="javascript:viewHighScores()" style="color:#51C22B;">View High Scores</a>
 
-                </div>
-            </div>
+            <!-- <a href="javascript:viewHighScores()" style="color:#51C22B;" id="aViewHighScoresID">View High Scores</a> -->
+
         </div>
 
         <div class="highscores-container" id="highscoresContainerID">
