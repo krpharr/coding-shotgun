@@ -63,6 +63,12 @@ function initStartPage() {
             case "CSS":
                 n = cssQUIZ.length;
                 break;
+            case "HTML":
+                n = htmlQUIZ.length;
+                break;
+            case "bash":
+                n = bashQUIZ.length;
+                break;
         }
         for (var i = 0; i < n; i++) {
             var opt = document.createElement("option");
@@ -128,6 +134,12 @@ function setLanguages(langSettingsArray) {
                 break;
             case "CSS":
                 qArray = cssQUIZ.slice();
+                break;
+            case "HTML":
+                qArray = htmlQUIZ.slice();
+                break;
+            case "bash":
+                qArray = bashQUIZ.slice();
                 break;
         }
         qArray.forEach(q => {

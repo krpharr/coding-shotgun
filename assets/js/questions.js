@@ -1,4 +1,4 @@
- var languagesArray = ["javaScript", "git", "CSS"];
+ var languagesArray = ["javaScript", "git", "CSS", "HTML", "bash"];
 
  var javascriptQUIZ = [{
          title: "JavaScript variables are containers for __________ data values.",
@@ -81,6 +81,62 @@
          answer: "true"
      }
  ];
+
+ var htmlQUIZ = [{
+         title: "HTML elements are represented by _________.",
+         choices: ["classes", "colors", "tags", "divs"],
+         answer: "tags"
+     },
+     {
+         title: "The HTML document itself begins with _________ .",
+         choices: ["&lthtml&rt", "javascript", "Hello World!", "&ltbody&rt"],
+         answer: "&lthtml&rt"
+     },
+     {
+         title: "&lth1&rt is a _________ tag.",
+         choices: ["paragraph", "heading", "text", "color"],
+         answer: "heading"
+     },
+     {
+         title: "The &ltimg&rt tag does not have a closing tag.",
+         choices: ["true", "false"],
+         answer: "true"
+     },
+     {
+         title: "href is an attribute for the _______ tag?",
+         choices: ["&lta&rt", "&ltdiv&rt", "&ltp&rt", "&ltinput&rt"],
+         answer: "&lta&rt"
+     }
+ ];
+
+
+ var bashQUIZ = [{
+         title: "Show directory contents, lists names of files.",
+         choices: ["mkdir", "ls", "cd", "pwd"],
+         answer: "ls"
+     },
+     {
+         title: "Creates a blank file with a specified name.",
+         choices: ["finger", "cp", "ping", "touch"],
+         answer: "touch"
+     },
+     {
+         title: "'________ foo' creates a directory called 'foo'.",
+         choices: ["ls", "mkdir", "rmdir", "rm"],
+         answer: "mkdir"
+     },
+     {
+         title: "Displays the name of the working directory.",
+         choices: ["pwd", "dir", "ls", "find"],
+         answer: "pwd"
+     },
+     {
+         title: "Copy specified file to a new named file",
+         choices: ["cp", "touch", "push", "commit"],
+         answer: "cp"
+     }
+ ];
+
 
  //  var QUIZ = [{
  //          title: "",
