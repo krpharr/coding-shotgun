@@ -362,9 +362,9 @@ function getHighScores() {
     var hs = JSON.parse(localStorage.getItem("highscores"));
     if (hs === null) {
         hs = [];
-        showElement("#aViewHighScoresID", false);
+        showElement("#elViewHighScoresID", false);
     } else {
-        showElement("#aViewHighScoresID", true);
+        showElement("#elViewHighScoresID", true);
     }
     return hs;
 }

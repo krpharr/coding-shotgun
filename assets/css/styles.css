@@ -20,6 +20,9 @@ h1 {
     font-size: 3rem;
     color: #2F8EF8;
     border: 1px solid #2F8EF8;
+    padding: 8px;
+    margin: 0;
+    /* width: fit-content; */
 }
 
 .main-view {}
@@ -128,7 +131,19 @@ h1 {
 
 #scoresUlID li {}
 
-#aViewHighScoresID,
+#elViewHighScoresID {
+    /* color: #51C22B; */
+    display: none;
+    /* border: 1px solid #51C22B; */
+}
+
+#aViewHighScoresID {
+    color: #51C22B;
+    /* display: none; */
+    border: 1px solid #51C22B;
+    padding: 4px;
+}
+
 #aHomeID {
     position: fixed;
     top: 8px;
