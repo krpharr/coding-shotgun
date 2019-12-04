@@ -16,6 +16,12 @@ select {
     border: none;
 }
 
+h1 {
+    font-size: 3rem;
+    color: #2F8EF8;
+    border: 1px solid #2F8EF8;
+}
+
 .main-view {}
 
 
@@ -201,7 +207,11 @@ select {
     color: #AF7C65;
 }
 
-@media only screen and (min-width: 320px) {}
+@media only screen and (min-width: 320px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -211,7 +221,11 @@ select {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
 
 
 /* Medium devices (landscape tablets, 768px and up) */
