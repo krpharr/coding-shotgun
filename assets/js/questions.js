@@ -89,23 +89,23 @@
      },
      {
          title: "The HTML document itself begins with _________ .",
-         choices: ["&lthtml&rt", "javascript", "Hello World!", "&ltbody&rt"],
-         answer: "&lthtml&rt"
+         choices: ["<html>", "javascript", "Hello World!", "<body>"],
+         answer: "<html>"
      },
      {
-         title: "&lth1&rt is a _________ tag.",
+         title: "<h1> is a _________ tag.",
          choices: ["paragraph", "heading", "text", "color"],
          answer: "heading"
      },
      {
-         title: "The &ltimg&rt tag does not have a closing tag.",
+         title: "The <img> tag does not have a closing tag.",
          choices: ["true", "false"],
          answer: "true"
      },
      {
          title: "href is an attribute for the _______ tag?",
-         choices: ["&lta&rt", "&ltdiv&rt", "&ltp&rt", "&ltinput&rt"],
-         answer: "&lta&rt"
+         choices: ["<a>", "<div", "<p>", "<input>"],
+         answer: "<a>"
      }
  ];
 
