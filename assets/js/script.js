@@ -25,6 +25,7 @@ var userQuizObjectArray = []; //for storing user answers and diplaying results
 var totalQuestions = 0;
 var totalSeconds = 75;
 var secondsLeft = 0;
+var outOfTime = false;
 var interval;
 var finalScore;
 var quizArray = [];
@@ -165,6 +166,7 @@ function startTimer() {
 
         timerSpan.textContent = timeStrings.mins + ":" + timeStrings.secs;
         if (secondsLeft <= 0) {
+            outOfTime = true;
             clearInterval(interval);
             endQuiz();
         }
@@ -215,6 +217,11 @@ function startQuiz() {
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
     totalQuestions = quizArray.length;
     userQuizObjectArray = [];
+    if (outOfTime) {
+        var el = document.querySelector("#liOutOfTimeID");
+        el.parentNode.removeChild(el);
+        outOfTime = false;
+    }
     setFocus(quizContainer);
     showElement("#resultsElID", false);
     startTimer();
@@ -299,6 +306,15 @@ function displayResults() {
     initialsInput.setAttribute("placeholder", "___");
     setFocus(resultsContainer);
     finalScore = ((secondsLeft / totalSeconds) * 100).toFixed(0);
+    if (outOfTime) {
+        var li = document.createElement("li");
+        var span = document.createElement("span");
+        span.setAttribute("class", "yellow");
+        span.textContent = "OUT OF TIME!";
+        li.appendChild(span);
+        li.setAttribute("id", "liOutOfTimeID");
+        document.querySelector("#resultsULID").prepend(li);
+    }
     scoreSpan.textContent = finalScore;
     timeSpan.textContent = secondsLeft;
     questionsSpan.textContent = userQuizObjectArray.length + " of " + totalQuestions;
