@@ -85,8 +85,8 @@ h1 {
 }
 
 #startBtnID {
-    margin: 16px 0;
-    font-size: 10vh;
+    margin: 16px auto;
+    font-size: 40px;
     background-color: #242426;
     color: #2F8EF8;
 }

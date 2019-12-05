@@ -117,7 +117,7 @@
      },
      {
          title: "Creates a blank file with a specified name.",
-         choices: ["finger", "cp", "ping", "touch"],
+         choices: ["grep", "cp", "ping", "touch"],
          answer: "touch"
      },
      {
