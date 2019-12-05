@@ -157,14 +157,18 @@ function setLanguages(langSettingsArray) {
         });
     });
     totalSeconds = quizArray.length * 15;
-    totalTimeSpan.textContent = totalSeconds + " secs";
+    var timeStrings = getMinsSecsStrings(totalSeconds);
+    totalTimeSpan.textContent = timeStrings.mins + ":" + timeStrings.secs;
 }
 
 function startTimer() {
     secondsLeft = totalSeconds;
     interval = setInterval(function() {
         secondsLeft--;
-        timerSpan.textContent = secondsLeft;
+
+        var timeStrings = getMinsSecsStrings(secondsLeft);
+
+        timerSpan.textContent = timeStrings.mins + ":" + timeStrings.secs;
         if (secondsLeft <= 0) {
             clearInterval(interval);
             // quiz over
@@ -392,6 +396,21 @@ function showElement(selector, show) {
 
 function initalInputChange(event) {
     initialsInput.value = initialsInput.value.toUpperCase();
+}
+
+function getMinsSecsStrings(seconds) {
+    var mins = Math.floor(seconds / 60);
+    var secs = seconds % 60;
+
+    // console.log(mins, secs);
+
+    var minsStr = ("" + mins).slice(-2);
+    var secsStr = ("0" + secs).slice(-2);
+
+    return {
+        mins: minsStr,
+        secs: secsStr
+    };
 }
 
 startBtn.addEventListener("click", startQuiz);
