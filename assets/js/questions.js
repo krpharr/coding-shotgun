@@ -73,7 +73,7 @@
      {
          title: "The __________ property is used for positioning and formatting content",
          choices: ["float", "int", "void", "background"],
-         answer: ""
+         answer: "float"
      },
      {
          title: "An element with position: absolute; is positioned relative to the nearest positioned ancestor.",

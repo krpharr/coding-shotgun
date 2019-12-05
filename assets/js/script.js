@@ -22,6 +22,7 @@ var resultsContainer = document.querySelector(".results-container");
 var highscoresContainer = document.querySelector(".highscores-container");
 var containerArray = [startContainer, quizContainer, resultsContainer, highscoresContainer];
 var userQuizObjectArray = []; //for storing user answers and diplaying results
+var totalQuestions = 0;
 var totalSeconds = 75;
 var secondsLeft = 0;
 var interval;
@@ -39,19 +40,13 @@ function initStartPage() {
     languagesArray.forEach(element => {
         var li = document.createElement("li");
         li.setAttribute("value", element);
-        // li.setAttribute("class", "col-xs-12");
-        // li.style.display = "inline";
         li.style.margin = "0 8px";
-        // li.style.padding = "8px 4px";
-        // li.style.borderBottom = "1px solid black";
         var cb = document.createElement("input");
         cb.setAttribute("type", "checkbox");
         cb.setAttribute("value", element);
-        // cb.style.margin = "0 4px";
         var span = document.createElement("span");
         span.textContent = element;
         var sel = document.createElement("select");
-        // sel.style.margin = "0 4px";
         var n;
         switch (element) {
             case "javaScript":
@@ -171,8 +166,6 @@ function startTimer() {
         timerSpan.textContent = timeStrings.mins + ":" + timeStrings.secs;
         if (secondsLeft <= 0) {
             clearInterval(interval);
-            // quiz over
-            // alert("Time's up!");
             endQuiz();
         }
     }, 1000);
@@ -220,6 +213,7 @@ function resetLangSettings() {
 function startQuiz() {
     resetLangSettings();
     quizArray.sort(function(a, b) { return 0.5 - Math.random() });
+    totalQuestions = quizArray.length;
     userQuizObjectArray = [];
     setFocus(quizContainer);
     showElement("#resultsElID", false);
@@ -307,7 +301,7 @@ function displayResults() {
     finalScore = ((secondsLeft / totalSeconds) * 100).toFixed(0);
     scoreSpan.textContent = finalScore;
     timeSpan.textContent = secondsLeft;
-    questionsSpan.textContent = userQuizObjectArray.length;
+    questionsSpan.textContent = userQuizObjectArray.length + " of " + totalQuestions;
     userQuizObjectArray.forEach(qObj => {
         var li = document.createElement("li");
         var ul = document.createElement("ul");
@@ -377,9 +371,7 @@ function viewHighScores() {
     clearChoices(scoresUl);
     setFocus(highscoresContainer);
     var highscores = getHighScores();
-
     highscores.sort((a, b) => (a.score > b.score) ? -1 : 1);
-
     highscores.forEach(element => {
         var li = document.createElement("li");
         var str = element.initials + "\t" + element.score;
@@ -401,12 +393,8 @@ function initalInputChange(event) {
 function getMinsSecsStrings(seconds) {
     var mins = Math.floor(seconds / 60);
     var secs = seconds % 60;
-
-    // console.log(mins, secs);
-
     var minsStr = ("" + mins).slice(-2);
     var secsStr = ("0" + secs).slice(-2);
-
     return {
         mins: minsStr,
         secs: secsStr
