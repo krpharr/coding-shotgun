@@ -16,6 +16,10 @@ select {
     border: none;
 }
 
+.jumbotron {
+    background-color: #242426;
+}
+
 h1 {
     font-size: 3rem;
     color: #2F8EF8;
@@ -81,7 +85,7 @@ h1 {
 }
 
 #startBtnID {
-    margin: 40px 0;
+    margin: 16px 0;
     font-size: 10vh;
     background-color: #242426;
     color: #2F8EF8;
