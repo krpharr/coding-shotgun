@@ -78,7 +78,22 @@
 
         <div class="results-container" id="resultsContainerID">
             <div class="row">
-                <div class="col-sm-12 mt-4 text-center">
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                <div class="col-sm-12 col-md-6 text-center mt-4  ">
+                    <span class="green d-block" style="display:block;">Enter Initials</span>
+                    <input class="d-block" type="text" id="initialsInputID" maxlength="3" onkeypress="return (event.charCode > 64 && 
+                    event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
+
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="row"> -->
+                    <!-- <div class="col-sm-12 col-md-6  text-center pt-2"> -->
+                    <button id="cancelBtnID" class="btn-info d-inline">Cancel</button>
+                    <button id="enterBtnID" class="btn-info d-inline">Enter</button>
+
+                </div>
+                <div class="col-sm-12 col-md-6 text-center mt-4">
                     <ul style="list-style-type:none; padding:0;">
                         <li><span class="yellow">User Score: <span class="orange" id="scoreSpanID"></span></span>
                         </li>
@@ -91,23 +106,9 @@
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col-sm-12 text-center pt-3">
-                    <span class="green" style="display:block;">Enter Initials</span>
-                    <input type="text" id="initialsInputID" maxlength="3" onkeypress="return (event.charCode > 64 && 
-                    event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 text-center pt-2">
-                    <button id="cancelBtnID" class="btn-info">Cancel</button>
-                    <button id="enterBtnID" class="btn-info">Enter</button>
-
-                </div>
-            </div>
             <div class="row pt-5">
-                <div class="col-sm-12">
+                <div class="col-12">
                     <div class="text-center" id="viewRecQuizToggleID">
                         <span id="viewRecQuizSpanID">Review Quiz</span>
                     </div>

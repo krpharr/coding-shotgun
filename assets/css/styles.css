@@ -171,7 +171,7 @@ h1 {
 #initialsInputID {
     width: 200px;
     /* height: 80px; */
-    margin: 8px;
+    margin: 8px auto;
     font-size: 4rem;
     text-align: center;
     letter-spacing: 4px;
@@ -200,6 +200,11 @@ h1 {
 
 #viewRecQuizToggleID:hover {
     border: 1px solid #63B9EA;
+}
+
+#userQuizOlID ul li {
+    background-color: #C2C42F;
+    color: #242426;
 }
 
 .green {
