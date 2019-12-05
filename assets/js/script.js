@@ -3,6 +3,8 @@ var timerSpan = document.querySelector("#timerSpanID");
 var languageSpan = document.querySelector("#languageSpanID");
 var promtSpan = document.querySelector("#promtSpanID");
 var choicesUL = document.querySelector("#choicesULID");
+var audioCorrect = document.querySelector("#audioCorrectID");
+var audioIncorrect = document.querySelector("#audioIncorrectID");
 var resultsEl = document.querySelector("#resultsElID");
 var resultSpan = document.querySelector("#resultSpanID");
 var viewRecQuizToggleEl = document.querySelector("#viewRecQuizToggleID");
@@ -278,9 +280,10 @@ function checkAnswer(event) {
         resultSpan.textContent = "";
     }, 1000);
     if (msg === "Correct") {
-
+        audioCorrect.play();
     } else {
         secondsLeft -= 15;
+        audioIncorrect.play();
     }
     var len = quizArray.length;
     if (len === 1) {
