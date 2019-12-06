@@ -33,7 +33,7 @@ Once scores have been recorded you can review them by clicking link on start pag
 
 
 
-![alt text](assets/images/highScoresView.png "Highscores View")
+![alt text](assets/images/highscoresView.png "Highscores View")
 
 
 ## Credits
