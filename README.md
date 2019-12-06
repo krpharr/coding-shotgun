@@ -7,20 +7,19 @@ Timed quiz on full-stack progamming and mark-up languages to test your coding kn
 to be flexible to easily add more questions and languages as needed for intensive full-stack training or review.
 
 ## Usage 
-<center>
 
-![alt text](assets/images/start.png "code=shotgun")
 
-</center>
+![alt text](assets/images/start.png "code-shotgun")
+
+
 
 Select your choice of coding and markup languages. Once selected, a select box will appear and you can adjust the number questions to be included of that language.  Each question adds 15 seconds to the total time of the quiz. 
 
 
-<center>
+
 
 ![alt text](assets/images/langSelect.png "Select languages")
 
-</center>
         
 Press START and the quiz begins. Timer begins and is displayed in upper right corner.  Questions are diplayed with reference to it's language and the multiple choice answers. Click your choice of answer and you will be greeted with and audio sound and a temporary display to indicate whether question was answered correctly.  Incorrect answers subtract 15 seconds from the time remaining.  Zero time remaing results in a score of zero. Score is derived from time remaining divided the total quiz time.
 
