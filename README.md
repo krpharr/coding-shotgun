@@ -32,11 +32,10 @@ After quiz you are prompted to enter your initials for storage so you can compar
 
 Once scores have been recorded you can review them by clicking link on start page.
 
-<center>
+
 
 ![alt text](assets/images/highScoresView.png "Highscores View")
 
-</center>
 
 ## Credits
 
